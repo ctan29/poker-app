@@ -1,0 +1,23 @@
+{
+  "name": "poker-app",
+  "version": "1.0.0",
+  "description": "Simple poker application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctan29/poker-app.git"
+  },
+  "author": "Coelus Tan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctan29/poker-app/issues"
+  },
+  "homepage": "https://github.com/ctan29/poker-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
