@@ -26,21 +26,56 @@ class Deck {
       [this.deck[j], this.deck[i]] = [this.deck[i], this.deck[j]];
     }
   }
+
+  // Resets the deck to it's normal state
+  resetCards() {
+    let oldDeck = this.deck;
+    this.deck = [...oldDeck, ...this.usedCards];
+    this.usedCards = [];
+    this.shuffleCards();
+  }
 }
 
 class Game {
-  constructor() {
-    //
+  constructor(deck) {
+    this.gameDeck = deck;
+
+    this.playersList = [];
+    this.revealedCards = [];
+    this.activePlayers = []; //?
+    this.dealerIndex = 0;
+    this.blindsValue = 0;
+    this.roundCount = 1;
+    this.potChips = 0;
+  }
+
+  startGame() {
+    if (this.playersList < 2) {
+      return "Not enough players to start game";
+    }
   }
 }
 
 class Player {
-  constructor() {
-    //
+  constructor(chips) {
+    this.playerId = null;
+    this.chips = chips;
+    this.playerCard = null;
   }
+
+  set dealtCard(card) {
+    this.playerCard = card;
+  }
+
+  // Add or remove the amount of chips a player has
+  set addRemoveChips(chipDifference) {
+    this.chips += chipDifference;
+  }
+
+  //Call, Raise, Fold
 }
 
-// Creation of a 3 suit deck
+// Creation of a 3 suit deck, starting at 2
 const SUITS = ["Rock", "Paper", "Scissors"];
 var normalDeck = [];
 for (let i = 0; i < SUITS.length; i++) {
@@ -51,7 +86,6 @@ for (let i = 0; i < SUITS.length; i++) {
 
 console.log(normalDeck);
 
-var testCard = new Card(10, "jack");
 var testDeck = new Deck(normalDeck);
 
 //console.log(testDeck);
